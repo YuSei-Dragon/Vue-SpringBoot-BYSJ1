@@ -2,6 +2,10 @@ package com.springboot.service;
 
 import com.springboot.entity.Discuss;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.springboot.form.DiscussForm;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +16,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2023-03-30
  */
 public interface DiscussService extends IService<Discuss> {
+
+    public List getdiscuss(String classname);
 
 }

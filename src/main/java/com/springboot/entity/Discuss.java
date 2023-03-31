@@ -1,6 +1,9 @@
 package com.springboot.entity;
 
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -20,9 +23,12 @@ import lombok.EqualsAndHashCode;
 
     private String text;
 
-      private String class;
+      private String classes;
 
     private String user;
+
+    @TableId(value = "id",type = IdType.AUTO)
+    private Integer id;
 
 
 }

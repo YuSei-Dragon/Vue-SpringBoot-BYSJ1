@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class SearchForm {
-    String name;
-    String text;
+    private String name;
+    private String text;
 }
