@@ -17,4 +17,6 @@ import java.util.List;
 public interface ClassService extends IService<Class> {
 
     public List search();
+
+    public List echart();
 }

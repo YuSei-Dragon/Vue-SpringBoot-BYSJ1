@@ -32,6 +32,11 @@ public class ClassController {
         List list =  this.classService.search();
         return  list;
     }
+    @GetMapping("/echart")
+    public List echart(){
+        List list = this.classService.echart();
+        return  list;
+    }
 
 
 }

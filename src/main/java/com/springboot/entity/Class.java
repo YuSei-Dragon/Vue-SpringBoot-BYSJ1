@@ -7,6 +7,7 @@ import java.io.Serializable;
 import com.springboot.form.SearchForm;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 /**
  * <p>
@@ -29,5 +30,9 @@ import lombok.EqualsAndHashCode;
 
     private String text;
 
+//    @Override
+//   public String ToString(){
+//      return "123";
+//    }
 
 }
