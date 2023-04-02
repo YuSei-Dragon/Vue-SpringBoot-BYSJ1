@@ -1,8 +1,11 @@
 package com.springboot.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.springboot.entity.UserAdmin;
+import com.springboot.form.ChangepasswordForm;
 import com.springboot.form.RuleForm;
 import com.springboot.mapper.UserAdminMapper;
 import com.springboot.service.UserAdminService;
@@ -50,6 +53,25 @@ public class UserAdminController {
             //账号已存在，返回-2
             return ResultVOUtil.fail2();
         }
+    }
+    @Autowired
+    private UserAdminMapper userAdminMapper1;
+    @GetMapping("/changepassword")
+    public ResultVO changepassword(ChangepasswordForm changepasswordForm){
+//        queryWrapper.eq("user_name",changepasswordForm.getUsername());
+//        UserAdmin userAdmin1 = this.userAdminMapper1.selectOne(queryWrapper);
+        userAdminService.update(Wrappers.<UserAdmin>update().lambda().set(UserAdmin::getUserPassword,changepasswordForm.getNewpassword()).eq( UserAdmin::getUserName,changepasswordForm.getUsername()));
+        QueryWrapper<UserAdmin> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("user_name",changepasswordForm.getUsername());
+        UserAdmin userAdmin1 = this.userAdminMapper1.selectOne(queryWrapper);
+        if( userAdmin1.getUserPassword()!= changepasswordForm.getOldpassword()){
+            return ResultVOUtil.success(null);
+        }else{
+            System.out.println(userAdmin1.getUserPassword()+"...."+ changepasswordForm.getOldpassword());
+            return ResultVOUtil.fail1();
+
+        }
+
     }
     @GetMapping("/test")
     public String login(){
