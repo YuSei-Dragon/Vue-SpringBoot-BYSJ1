@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
 
 import java.sql.Wrapper;
+import java.util.List;
 
 /**
  * <p>
@@ -62,6 +63,12 @@ public class CollectController {
     public ResultVO iscollect(@RequestBody Mycollect mycollect){
         ResultVO resultVO = this.collectService.iscollect(mycollect);
         return  resultVO;
+    }
+
+    @GetMapping("/getcollect")
+    public List getcollect(String username){
+        List list = this.collectService.getcollect(username);
+        return list;
     }
 
 

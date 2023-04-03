@@ -39,7 +39,7 @@ public class Main {
         autoGenerator.setPackageInfo(packageConfig);
         //策略配置
         StrategyConfig strategyConfig = new StrategyConfig();
-        strategyConfig.setInclude("user_admin","sys_admin","class","discuss","collect");
+        strategyConfig.setInclude("user_admin","sys_admin","class","discuss","collect","states");
         strategyConfig.setNaming(NamingStrategy.underline_to_camel);
         strategyConfig.setColumnNaming(NamingStrategy.underline_to_camel);
         strategyConfig.setEntityLombokModel(true);

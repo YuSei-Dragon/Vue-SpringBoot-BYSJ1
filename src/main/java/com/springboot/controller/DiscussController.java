@@ -31,6 +31,12 @@ public class DiscussController {
         return list;
     }
 
+    @GetMapping("/getmydiscuss")
+    public List  getmydiscuss(String username){
+        List list = this.discussService.getmydiscuss(username);
+        return  list;
+    }
+
     @PostMapping("/submit")
     public String subdiscuss(@RequestBody Discuss discuss){
         boolean save = this.discussService.save(discuss);

@@ -25,7 +25,6 @@ public class DiscussServiceImpl extends ServiceImpl<DiscussMapper, Discuss> impl
     @Autowired
     private DiscussMapper discussMapper;
 
-
     @Override
     public List getdiscuss(String classname){
         QueryWrapper wrapper = new QueryWrapper();
@@ -34,4 +33,11 @@ public class DiscussServiceImpl extends ServiceImpl<DiscussMapper, Discuss> impl
         return list;
     }
 
+    @Override
+    public List getmydiscuss(String username){
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("user",username);
+        List<Discuss> list = discussMapper.selectList(wrapper);
+        return list;
+    }
 }

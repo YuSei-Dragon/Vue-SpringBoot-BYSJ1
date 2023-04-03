@@ -19,4 +19,5 @@ public interface DiscussService extends IService<Discuss> {
 
     public List getdiscuss(String classname);
 
+    public List getmydiscuss(String username);
 }
